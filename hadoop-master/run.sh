@@ -24,6 +24,4 @@ addProperty $HADOOP_HOME/etc/hadoop/hdfs-site.xml dfs.datanode.data.dir file:/us
 mkdir -p $HADOOP_HOME/input
 mkdir -p $HADOOP_HOME/tmp
 
-yum install -y openssh-server openssh-clients
-ssh-keygen -t rsa -A
-systemctl start sshd  
+/usr/sbin/sshd

@@ -14,6 +14,10 @@ RUN cd /root && \
 ENV HADOOP_HOME=/usr/local/hadoop
 ENV PATH=$HADOOP_HOME/bin:$PATH
 
+RUN yum install -y openssh-server openssh-clients && \
+    ssh-keygen  -t rsa  -f /root/.ssh/id_rsa -P '' -N '' && \
+    ssh-keygen -A && \
+    cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
